@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_this
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:intl/intl.dart';
@@ -34,17 +36,10 @@ class TodoList extends StatelessWidget {
               return Container();
           }
 
-          items.sort(
-            (a, b) =>
-                DateFormat("dd.MM.yyyy")
-                    .parse(a.date)
-                    .compareTo(DateFormat("dd.MM.yyyy").parse(b.date)) *
-                -1,
-          );
-
           return ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
+              log(items[index].id.toString());
               return TodoItem(items[index], this.page);
             },
           );

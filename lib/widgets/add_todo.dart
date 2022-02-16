@@ -138,19 +138,15 @@ class _AddTodoPageState extends State<AddTodoPage> {
 
     switch (this.page) {
       case 0:
-        nextID = store.state.home.isEmpty
-            ? 1
-            : store.state.home[store.state.home.length - 1].id + 1;
+        nextID = store.state.home.isEmpty ? 1 : store.state.home[0].id + 1;
         break;
       case 1:
-        nextID = store.state.learning.isEmpty
-            ? 1
-            : store.state.learning[store.state.learning.length - 1].id + 1;
+        nextID =
+            store.state.learning.isEmpty ? 1 : store.state.learning[0].id + 1;
         break;
       case 2:
-        nextID = store.state.software.isEmpty
-            ? 1
-            : store.state.software[store.state.software.length - 1].id + 1;
+        nextID =
+            store.state.software.isEmpty ? 1 : store.state.software[0].id + 1;
         break;
       default:
         return;

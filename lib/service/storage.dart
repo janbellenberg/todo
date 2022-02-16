@@ -8,6 +8,18 @@ import '../redux/store.dart';
 void saveState() async {
   final prefs = await SharedPreferences.getInstance();
 
+  store.state.home.sort(
+    (a, b) => a.id < b.id ? 1 : -1,
+  );
+
+  store.state.learning.sort(
+    (a, b) => a.id < b.id ? 1 : -1,
+  );
+
+  store.state.software.sort(
+    (a, b) => a.id < b.id ? 1 : -1,
+  );
+
   prefs.setString("home", jsonEncode(store.state.home));
   prefs.setString("learning", jsonEncode(store.state.learning));
   prefs.setString("software", jsonEncode(store.state.software));
